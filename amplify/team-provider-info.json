@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-ngowork-dev-125941-authRole",
+            "UnauthRoleArn": "arn:aws:iam::986817408189:role/amplify-ngowork-dev-125941-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::986817408189:role/amplify-ngowork-dev-125941-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "amplify-ngowork-dev-125941-deployment",
+            "UnauthRoleName": "amplify-ngowork-dev-125941-unauthRole",
+            "StackName": "amplify-ngowork-dev-125941",
+            "StackId": "arn:aws:cloudformation:ap-south-1:986817408189:stack/amplify-ngowork-dev-125941/b0e00dd0-ad73-11eb-9095-06ba4d5c6a10",
+            "AmplifyAppId": "d3ttz7a9p9pli"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d3ttz7a9p9pli",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}

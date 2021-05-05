@@ -11,9 +11,11 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 // import S3FileUpload , {uploadFile} from 'react-s3';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import history from './history';
+
 
  
 var cors = require('cors')
@@ -57,12 +59,6 @@ export default function RequestPage(){
                 classes = {classes}
             />);
 }
-
-// Fill in your bucket name and local file name:
-const BUCKET_NAME = 'gummysdf'
-// const FILE_NAME_LOCAL = './test-file.gif'
-// const FILE_NAME_S3 = 'this-will-be-the-file-name-on-s3.gif'
-const FILE_PERMISSION = 'public-read'
 
 class Main extends React.Component {
 
@@ -479,22 +475,15 @@ class Main extends React.Component {
     render(){
         if (this.state.gotohome){
             return (
-              <Redirect to="/home" />
+              <Redirect to="/status_check" />
             )
           }
-
-        // let submittingForm;
-        // if (this.state.form_submission){
-        //     submittingForm = <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        //                         <CircularProgress color="inherit" />
-        //                     </Backdrop>
-        // }
 
     return (
   
       <Container component="main" maxWidth="xs">
           
-              <div className="col-lg-8 align-self-center">
+              <div className="col-lg-10 align-self-center">
                   <div className="block">
                       <h1>
                           Complete the Form
@@ -635,7 +624,6 @@ class Main extends React.Component {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
                 onChange={(e) => this.changeEmailAddress(e)}
             />
 
@@ -681,12 +669,14 @@ class Main extends React.Component {
             />
 
             <FormControlLabel
-              control={<Checkbox 
-                          value="remember" 
-                          color="primary" 
-                          onChange={(e)=> this.handleAcceptTerms(e)}
-                          />}
-              label="Accept T&C"
+                control={
+                        <Checkbox 
+                            value="remember" 
+                            color="primary" 
+                            onChange={(e)=> this.handleAcceptTerms(e)}
+                        />
+                        }
+                label="Accept T&C"
             />
 
             <Button
